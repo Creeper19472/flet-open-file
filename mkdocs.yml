@@ -1,0 +1,7 @@
+site_name: FletOpenFile
+
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings
