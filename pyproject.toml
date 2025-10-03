@@ -1,35 +1,36 @@
 [project]
 name = "flet-open-file"
-version = "0.1.0"
+version = "0.1.1"
 description = "FletOpenFile control for Flet"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 authors = [
-    { name = "Flet contributors", email = "you@example.com" }
+    { name = "Creeper19472", email = "creeper19472@crpteam.club" }
 ]
 dependencies = [
-    "flet>=0.28.3",
+    "flet==0.70.0.dev6196",
 ]
 
 [project.urls]
-Homepage = "https://mydomain.dev"
-Documentation = "https://github.com/MyGithubAccount/flet-open-file"
-Repository = "https://github.com/MyGithubAccount/flet-open-file"
-Issues = "https://github.com/MyGithubAccount/flet-open-file/issues"
+Homepage = "https://github.com/creeper19472/flet-open-file"
+Documentation = "https://github.com/creeper19472/flet-open-file"
+Repository = "https://github.com/creeper19472/flet-open-file"
+Issues = "https://github.com/creeper19472/flet-open-file/issues"
 
 [tool.setuptools.package-data]
 "flutter.flet_open_file" = ["**/*"]
 
 [tool.uv]
 dev-dependencies = [
-    "flet[all]==0.28.3",
+    "flet[all]==0.70.0.dev6196",
     "mkdocs", 
     "mkdocs-material",
     "mkdocstrings[python]"
 ]
+prerelease = "allow"
 
 [tool.poetry.group.dev.dependencies]
-flet = {extras = ["all"], version = "0.28.3"}
+flet = {extras = ["all"], version = "0.70.0.dev6196"}
 mkdocs = "*"
 mkdocstrings = { extras = ["python"], version = "*" }
 mkdocs-material = "*"

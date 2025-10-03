@@ -14,9 +14,7 @@ def main(page: ft.Page):
                 )
 
     page.add(
-
-                ft.Container(height=150, width=300, alignment = ft.alignment.center, bgcolor=ft.Colors.PURPLE_200, content=openfile,),
-
+        ft.Container(height=150, width=300, alignment = ft.Alignment.CENTER, bgcolor=ft.Colors.PURPLE_200, content=openfile,),
     )
 
-ft.app(main)
+ft.run(main)

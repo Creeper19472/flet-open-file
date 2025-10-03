@@ -1,15 +1,17 @@
 from enum import Enum
 from typing import Any, Optional
 
-from flet.core.constrained_control import ConstrainedControl
-from flet.core.control import OptionalNumber
+from flet.controls.layout_control import LayoutControl, control
+from flet.controls.types import Number
+# from flet.controls.layout_control import OptionalNumber
 
 
 class OpenFileState(Enum):
     OPEN_FILE = "openFile"
 
 
-class FletOpenFile(ConstrainedControl):
+@control("FletOpenFile")
+class FletOpenFile(LayoutControl):
     """
     FletOpenFile Control description.
     """
@@ -19,24 +21,24 @@ class FletOpenFile(ConstrainedControl):
         #
         # Control
         #
-        opacity: OptionalNumber = None,
+        opacity: Number = 1.0,
         tooltip: Optional[str] = None,
-        visible: Optional[bool] = None,
+        visible: bool = True,
         data: Any = None,
         text: Optional[str] = None,
         #
         # ConstrainedControl
         #
-        left: OptionalNumber = None,
-        top: OptionalNumber = None,
-        right: OptionalNumber = None,
-        bottom: OptionalNumber = None,
+        left: Optional[Number] = None,
+        top: Optional[Number] = None,
+        right: Optional[Number] = None,
+        bottom: Optional[Number] = None,
         #
         # FletOpenFile specific
         #
         value: Optional[str] = None,
     ):
-        ConstrainedControl.__init__(
+        LayoutControl.__init__(
             self,
             tooltip=tooltip,
             opacity=opacity,
@@ -54,29 +56,29 @@ class FletOpenFile(ConstrainedControl):
     def _get_control_name(self):
         return "flet_open_file"
 
-    # value
-    @property
-    def value(self):
-        """
-        Value property description.
-        """
-        return self._get_attr("value")
+    # # value
+    # @property
+    # def value(self):
+    #     """
+    #     Value property description.
+    #     """
+    #     return self._get_attr("value")
 
-    @value.setter
-    def value(self, value):
-        self._set_attr("value", value)
+    # @value.setter
+    # def value(self, value):
+    #     self._set_attr("value", value)
 
-    # text 
-    @property
-    def text(self):
-        """
-        Text property description.
-        """
-        return self._get_attr("text")
+    # # text 
+    # @property
+    # def text(self):
+    #     """
+    #     Text property description.
+    #     """
+    #     return self._get_attr("text")
 
-    @text.setter
-    def text(self, text):
-        self._set_attr("text", text)
+    # @text.setter
+    # def text(self, text):
+    #     self._set_attr("text", text)
 
     # state
     @property
@@ -86,7 +88,7 @@ class FletOpenFile(ConstrainedControl):
     @state.setter
     def state(self, value: Optional[OpenFileState]):
         self.__state = value
-        self._set_enum_attr("state", value, OpenFileState)
+        # self._set_enum_attr("state", value, OpenFileState)
 
     def open_file(self, filepath):
         self.state = OpenFileState.OPEN_FILE
