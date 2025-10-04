@@ -8,7 +8,7 @@ authors = [
     { name = "Creeper19472", email = "creeper19472@crpteam.club" }
 ]
 dependencies = [
-    "flet==0.70.0.dev6196",
+    "flet>=0.70.0.dev6196",
 ]
 
 [project.urls]
@@ -30,7 +30,7 @@ dev-dependencies = [
 prerelease = "allow"
 
 [tool.poetry.group.dev.dependencies]
-flet = {extras = ["all"], version = "0.70.0.dev6196"}
+flet = {extras = ["all"], version = "0.70.0.dev6214"}
 mkdocs = "*"
 mkdocstrings = { extras = ["python"], version = "*" }
 mkdocs-material = "*"
