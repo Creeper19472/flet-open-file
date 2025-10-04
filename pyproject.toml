@@ -22,7 +22,7 @@ Issues = "https://github.com/creeper19472/flet-open-file/issues"
 
 [tool.uv]
 dev-dependencies = [
-    "flet[all]==0.70.0.dev6196",
+    "flet[all]>=0.70.0.dev6196",
     "mkdocs", 
     "mkdocs-material",
     "mkdocstrings[python]"
