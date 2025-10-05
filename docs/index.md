@@ -4,31 +4,24 @@ FletOpenFile for Flet.
 
 ## Examples
 
-```
+```python
 import flet as ft
+from flet_open_file import OpenFile
 
-from flet_open_file import FletOpenFile
 
-
-def main(page: ft.Page):
+async def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
 
-    page.add(
+    open_file_service = OpenFile()
+    page._services.append(open_file_service)
+    await open_file_service.open("./README.md")
 
-                ft.Container(height=150, width=300, alignment = ft.alignment.center, bgcolor=ft.Colors.PURPLE_200, content=FletOpenFile(
-                    tooltip="My new FletOpenFile Control tooltip",
-                    value = "My new FletOpenFile Flet Control", 
-                ),),
-
-    )
-
-
-ft.app(main)
+ft.run(main)
 ```
 
 ## Classes
 
-[FletOpenFile](FletOpenFile.md)
+[OpenFile](FletOpenFile.md)
 
 
