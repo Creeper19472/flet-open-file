@@ -44,7 +44,7 @@ class OpenFileService extends FletService {
     debugPrint("OpenFile.$name($args)");
     switch (name) {
       case "open":
-        await openFile(args["path"])
+        await OpenFile.open(args["path"]);
       default:
         throw Exception("Unknown OpenFile method: $name");
     }

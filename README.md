@@ -11,8 +11,8 @@ Link to git repository:
 
 ```
 dependencies = [
-  "flet-open-file @ git+https://github.com/MyGithubAccount/flet-open-file",
-  "flet>=0.28.3",
+  "flet-open-file @ git+https://github.com/creeper19472/flet-open-file",
+  "flet>=0.70.0.dev6214",
 ]
 ```
 
@@ -23,7 +23,7 @@ If the package is published on pypi.org:
 ```
 dependencies = [
   "flet-open-file",
-  "flet>=0.28.3",
+  "flet>=0.70.0.dev6214",
 ]
 ```
 
@@ -34,4 +34,4 @@ flet build macos -v
 
 ## Documentation
 
-[Link to documentation](https://MyGithubAccount.github.io/flet-open-file/)
+[Link to documentation](https://github.com/creeper19472/flet-open-file)
