@@ -21,7 +21,7 @@ class FletOpenFileControl extends StatelessWidget {
     final String filePath = control.attrString("value", "")!;
     final String infoText = control.attrString("text", "")!;
 
-    return layoutControl(
+    return LayoutControl(
       context,
       ElevatedButton(
         onPressed: () => openFile(filePath),
