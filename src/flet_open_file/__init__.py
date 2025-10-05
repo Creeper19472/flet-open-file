@@ -1,1 +1,1 @@
-from flet_open_file.flet_open_file import FletOpenFile
+from flet_open_file.flet_open_file import OpenFile
