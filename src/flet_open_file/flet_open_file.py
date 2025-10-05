@@ -1,111 +1,29 @@
-from enum import Enum
-from typing import Any, Optional
-
-from flet.controls.layout_control import LayoutControl, control
-from flet.controls.types import Number
-# from flet.controls.layout_control import OptionalNumber
+from typing import Optional
+import flet as ft
 
 
-class OpenFileState(Enum):
-    OPEN_FILE = "openFile"
-
-
-@control("FletOpenFile")
-class FletOpenFile(LayoutControl):
+@ft.control("OpenFile")
+class OpenFile(ft.Service):
     """
-    FletOpenFile Control description.
-    """
+    A control to open various files using flutter package `open_file`..
 
-    def __init__(
-        self,
-        #
-        # Control
-        #
-        opacity: Number = 1.0,
-        tooltip: Optional[str] = None,
-        visible: bool = True,
-        data: Any = None,
-        text: Optional[str] = None,
-        #
-        # ConstrainedControl
-        #
-        left: Optional[Number] = None,
-        top: Optional[Number] = None,
-        right: Optional[Number] = None,
-        bottom: Optional[Number] = None,
-        #
-        # FletOpenFile specific
-        #
-        value: Optional[str] = None,
-    ):
-        LayoutControl.__init__(
-            self,
-            tooltip=tooltip,
-            opacity=opacity,
-            visible=visible,
-            data=data,
-            left=left,
-            top=top,
-            right=right,
-            bottom=bottom,
+    Note:
+        This control is non-visual and should be added to
+        [`Page.services`][flet.Page.services]
+        list before it can be used.
+    """
+    last_opened_path: Optional[str] = None
+
+    def before_update(self):
+        super().before_update()
+
+    async def open(self, path: Optional[str] = None, timeout: Optional[float] = 10):
+        if not path:
+            path = self.last_opened_path
+        
+        self.last_opened_path = path
+        await self._invoke_method(
+            method_name="open",
+            arguments={"path": path},
+            timeout=timeout,
         )
-
-        self.value = value
-        self.text = text
-
-    def _get_control_name(self):
-        return "flet_open_file"
-
-    # # value
-    # @property
-    # def value(self):
-    #     """
-    #     Value property description.
-    #     """
-    #     return self._get_attr("value")
-
-    # @value.setter
-    # def value(self, value):
-    #     self._set_attr("value", value)
-
-    # # text 
-    # @property
-    # def text(self):
-    #     """
-    #     Text property description.
-    #     """
-    #     return self._get_attr("text")
-
-    # @text.setter
-    # def text(self, text):
-    #     self._set_attr("text", text)
-
-    # state
-    @property
-    def state(self) -> Optional[OpenFileState]:
-        return self.__state
-
-    @state.setter
-    def state(self, value: Optional[OpenFileState]):
-        self.__state = value
-        # self._set_enum_attr("state", value, OpenFileState)
-
-    def open_file(self, filepath):
-        self.state = OpenFileState.OPEN_FILE
-        self.update()
-
-    # def pick_files(
-    #     self,
-    #     dialog_title: Optional[str] = None,
-    #     initial_directory: Optional[str] = None,
-    #     file_type: FilePickerFileType = FilePickerFileType.ANY,
-    #     allowed_extensions: Optional[List[str]] = None,
-    #     allow_multiple: Optional[bool] = False,
-    # ):
-    #     self.state = OpenFileState.OPEN_FILE
-    #     self.dialog_title = dialog_title
-    #     self.initial_directory = initial_directory
-    #     self.file_type = file_type
-    #     self.allowed_extensions = allowed_extensions
-    #     self.allow_multiple = allow_multiple
-    #     self.update()
